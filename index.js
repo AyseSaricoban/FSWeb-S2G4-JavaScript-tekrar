@@ -50,8 +50,8 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(cemberYaricap) {
+  return 2 * pi * cemberYaricap;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,9 +64,10 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yariCap, piSayisi) {
+  return piSayisi * yariCap * yariCap;
 }
+console.log("görev 2 sonuç", CemberinAlani(4, pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -99,28 +100,65 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
-
+for (let i of sayilar) {
+  if (i > enbuyuk) {
+    enbuyuk = i;
+  } else if (i < enkucuk) {
+    enkucuk = i;
+  }
+}
+console.log("görev 3a: ", enbuyuk);
+console.log("görev 3a: ", enkucuk);
 // 3b çözümü:
-
-/* kodlar buraya */
+sayilar.forEach((sayi) => {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi);
+  }
+});
+console.log("görev3b:", ucetambolunenler);
 
 // 3c çözümü:
 
-/* kodlar buraya */
-
+ucebolunenlerintoplami = ucetambolunenler.reduce((acc, sayi) => acc + sayi, 0);
+console.log("görev 3c sonuç :", ucebolunenlerintoplami);
 // 3d çözümü
 
-/* kodlar buraya */
-
+sayilar.filter((sayi) => {
+  if (sayi < 500) {
+    besyuzdenkucuksayilar.push(sayi);
+  }
+});
+console.log("görev 3d sonuç:", besyuzdenkucuksayilar);
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.slice().sort((a, b) => a - b);
+
+console.log("görev3e sonuç :", siralisayilar);
 
 // 3f çözümü
 
-/* kodlar buraya */
+function findRepeat(array) {
+  let tekrarSayisi = [];
 
+  for (let item of array) {
+    if (tekrarSayisi[item] === undefined) {
+      tekrarSayisi[item] = 1;
+    } else {
+      tekrarSayisi[item]++;
+    }
+  }
+
+  for (let key in tekrarSayisi) {
+    if (tekrarSayisi[key] > 1) {
+      tekraredensayilar.push(
+        `${key} sayısı ${tekrarSayisi[key]} kere tekrar edilmiştir`
+      );
+    }
+  }
+  return tekraredensayilar;
+}
+
+console.log("görev3f sonuç", findRepeat(sayilar));
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
 function sa() {
